@@ -36,8 +36,7 @@
         <p>Review registrations, open a vendor for the full details and set its status.</p>
       </div>
     </header>
-
-    <!-- Status counts double as quick filters -->
+    
     <div class="stats" id="stats" role="group" aria-label="Filter by status">
       <button type="button" class="stat" data-status="" aria-pressed="true">
         <span class="stat__label">All vendors</span>
@@ -105,7 +104,6 @@
         </table>
       </div>
 
-      <!-- Empty state: no vendors saved yet -->
       <div class="empty" id="empty-none" hidden>
         <span class="empty__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2.5h6.5A2.5 2.5 0 0 1 21 10v7.5a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/></svg>
@@ -132,7 +130,6 @@
     </section>
   </main>
 
-  <!-- Vendor details panel -->
   <div class="drawer-root" id="drawer-root" hidden>
     <div class="drawer-overlay" data-close></div>
     <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" tabindex="-1">
