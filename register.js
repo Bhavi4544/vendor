@@ -129,7 +129,6 @@ const refreshErrors = () => {
   return errors;
 };
 
-// ---------- Confirmation screen ----------
 
 const showConfirmation = (vendor) => {
   document.querySelector('#success-reference').textContent = vendor.id;
@@ -157,7 +156,6 @@ const showFormAgain = () => {
   document.querySelector('#companyName').focus();
 };
 
-// ---------- Events ----------
 
 const updateSummaryCount = () => {
   summaryCount.textContent = `${summaryField.value.length} / ${SUMMARY_MAX_LENGTH}`;
@@ -190,7 +188,7 @@ const handleReset = () => {
   saveError.hidden = true;
   showFieldErrors({});
   showErrorSummary({});
-  // The browser clears the fields after this event, so update the counter next.
+  
   setTimeout(updateSummaryCount, 0);
 };
 
