@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register your studio | Vendor Roster</title>
+
+  <!-- Fonts are optional. If they do not load, system fonts are used (see css/style.css). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="images/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html">
+        <img class="brand__logo" src="images/logo.png" alt="">
+        Vendor Roster
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html" aria-current="page">Register</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+
+    <!-- View 1: registration form -->
+    <div id="form-view" class="register-layout">
+
+      <aside class="intro">
+        <h1 id="form-title">Register your VFX studio</h1>
+        <p class="intro__lead">Tell us about your team, services and tools. An administrator reviews every registration.</p>
+
+        <nav class="steps" aria-label="Form sections">
+          <ol>
+            <li><a href="#sec-company" aria-current="step">Company details</a></li>
+            <li><a href="#sec-contact">Contact details</a></li>
+            <li><a href="#sec-services">VFX services</a></li>
+            <li><a href="#sec-team">Team and tools</a></li>
+            <li><a href="#sec-work">About your work</a></li>
+          </ol>
+        </nav>
+
+        <p class="intro__note">Fields marked <span class="required-mark" aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required. You get a reference number as soon as you submit.</p>
+      </aside>
+
+      <div class="register-main">
+        <div class="alert alert--error" id="save-error" role="alert" hidden>
+          <h2 class="alert__title">We could not save your registration</h2>
+          <p>Your browser blocked or ran out of storage space. Your answers are still in the form. Check that storage is allowed for this site, then submit again.</p>
+        </div>
+
+        <div class="alert alert--error" id="error-summary" tabindex="-1" hidden>
+          <h2 class="alert__title" id="error-summary-title"></h2>
+          <ul class="alert__list" id="error-summary-list"></ul>
+        </div>
+
+        <form id="vendor-form" class="panel" novalidate aria-labelledby="form-title">
+
+          <section class="form-section" id="sec-company" aria-labelledby="company-heading">
+            <div class="form-section__head">
+              <h2 class="form-section__title" id="company-heading">Company details</h2>
+              <p class="form-section__hint">Where your studio is based.</p>
+            </div>
+
+            <div class="field" data-field="companyName">
+              <label for="companyName">Company name <span class="required-mark" aria-hidden="true">*</span></label>
+              <input id="companyName" name="companyName" type="text" autocomplete="organization" required aria-describedby="companyName-error">
+              <p class="field__error" id="companyName-error" hidden></p>
+            </div>
+
+            <div class="field-row">
+              <div class="field" data-field="city">
+                <label for="city">City <span class="required-mark" aria-hidden="true">*</span></label>
+                <input id="city" name="city" type="text" autocomplete="address-level2" required aria-describedby="city-error">
+                <p class="field__error" id="city-error" hidden></p>
+              </div>
+
+              <div class="field" data-field="country">
+                <label for="country">Country <span class="required-mark" aria-hidden="true">*</span></label>
+                <input id="country" name="country" type="text" autocomplete="country-name" required aria-describedby="country-error">
+                <p class="field__error" id="country-error" hidden></p>
+              </div>
+            </div>
+
+            <div class="field" data-field="website">
+              <label for="website">Website</label>
+              <input id="website" name="website" type="url" inputmode="url" autocomplete="url" placeholder="https://yourstudio.com" aria-describedby="website-error">
+              <p class="field__error" id="website-error" hidden></p>
+            </div>
+          </section>
+
+          <section class="form-section" id="sec-contact" aria-labelledby="contact-heading">
+            <div class="form-section__head">
+              <h2 class="form-section__title" id="contact-heading">Contact details</h2>
+              <p class="form-section__hint">The person we should contact about projects.</p>
+            </div>
+
+            <div class="field" data-field="contactPerson">
+              <label for="contactPerson">Contact person <span class="required-mark" aria-hidden="true">*</span></label>
+              <input id="contactPerson" name="contactPerson" type="text" autocomplete="name" required aria-describedby="contactPerson-error">
+              <p class="field__error" id="contactPerson-error" hidden></p>
+            </div>
+
+            <div class="field-row">
+              <div class="field" data-field="email">
+                <label for="email">Business email <span class="required-mark" aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error">
+                <p class="field__error" id="email-error" hidden></p>
+              </div>
+
+              <div class="field" data-field="phone">
+                <label for="phone">Phone number <span class="required-mark" aria-hidden="true">*</span></label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required aria-describedby="phone-hint phone-error">
+                <p class="field__hint" id="phone-hint">Include the country code, like +44 20 7946 0000.</p>
+                <p class="field__error" id="phone-error" hidden></p>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section" id="sec-services" aria-labelledby="services-heading">
+            <div class="form-section__head">
+              <h2 class="form-section__title" id="services-heading">VFX services</h2>
+              <p class="form-section__hint">What your studio delivers.</p>
+            </div>
+
+            <fieldset class="field" data-field="services" aria-describedby="services-hint services-error">
+              <legend>Services offered <span class="required-mark" aria-hidden="true">*</span></legend>
+              <p class="field__hint" id="services-hint">Select at least one.</p>
+              <div class="chip-group" id="services-group"></div>
+              <p class="field__error" id="services-error" hidden></p>
+            </fieldset>
+          </section>
+
+          <section class="form-section" id="sec-team" aria-labelledby="team-heading">
+            <div class="form-section__head">
+              <h2 class="form-section__title" id="team-heading">Team and tools</h2>
+              <p class="form-section__hint">How big your team is and what software it uses.</p>
+            </div>
+
+            <div class="field-row">
+              <div class="field" data-field="teamSize">
+                <label for="teamSize">Team size <span class="required-mark" aria-hidden="true">*</span></label>
+                <input id="teamSize" name="teamSize" type="number" inputmode="numeric" min="1" step="1" required aria-describedby="teamSize-hint teamSize-error">
+                <p class="field__hint" id="teamSize-hint">Number of artists and staff.</p>
+                <p class="field__error" id="teamSize-error" hidden></p>
+              </div>
+
+              <div class="field" data-field="yearsExperience">
+                <label for="yearsExperience">Years of experience</label>
+                <input id="yearsExperience" name="yearsExperience" type="number" inputmode="decimal" min="0" step="any" aria-describedby="yearsExperience-error">
+                <p class="field__error" id="yearsExperience-error" hidden></p>
+              </div>
+            </div>
+
+            <div class="field" data-field="tools">
+              <label for="tools">Software used</label>
+              <input id="tools" name="tools" type="text" placeholder="Nuke, Maya, Houdini" aria-describedby="tools-hint">
+              <p class="field__hint" id="tools-hint">Separate with commas. For example Nuke, Maya, Houdini, After Effects, Silhouette, Blender.</p>
+            </div>
+          </section>
+
+          <section class="form-section" id="sec-work" aria-labelledby="work-heading">
+            <div class="form-section__head">
+              <h2 class="form-section__title" id="work-heading">About your work</h2>
+              <p class="form-section__hint">Help the reviewer understand your strengths.</p>
+            </div>
+
+            <div class="field" data-field="summary">
+              <label for="summary">Company summary</label>
+              <textarea id="summary" name="summary" rows="5" maxlength="600" aria-describedby="summary-hint summary-error"></textarea>
+              <p class="field__hint" id="summary-hint">What your company does best. <span id="summary-count">0 / 600</span></p>
+              <p class="field__error" id="summary-error" hidden></p>
+            </div>
+
+            <div class="field" data-field="portfolioUrl">
+              <label for="portfolioUrl">Portfolio or showreel link</label>
+              <input id="portfolioUrl" name="portfolioUrl" type="url" inputmode="url" placeholder="https://vimeo.com/your-showreel" aria-describedby="portfolioUrl-error">
+              <p class="field__error" id="portfolioUrl-error" hidden></p>
+            </div>
+          </section>
+
+          <div class="form-actions">
+            <button type="submit" class="button button--primary button--large">Submit registration</button>
+            <button type="reset" class="button button--secondary button--large">Clear form</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- View 1b: confirmation -->
+    <section id="success-view" class="success" aria-labelledby="success-title" hidden>
+      <div class="success__card">
+        <span class="success__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+        </span>
+
+        <h1 id="success-title" tabindex="-1">Registration received</h1>
+        <p class="success__lead">Thank you. An administrator will review your details and reply to <strong id="success-email"></strong>.</p>
+
+        <div class="reference" role="group" aria-label="Your vendor reference number">
+          <span class="reference__label">Vendor reference</span>
+          <strong class="reference__code" id="success-reference"></strong>
+          <span class="reference__help">Keep this number. You need it if you contact us about this registration.</span>
+        </div>
+
+        <dl class="summary-list">
+          <div class="summary-list__row">
+            <dt>Company</dt>
+            <dd id="success-company"></dd>
+          </div>
+          <div class="summary-list__row">
+            <dt>Services</dt>
+            <dd id="success-services"></dd>
+          </div>
+          <div class="summary-list__row">
+            <dt>Status</dt>
+            <dd><span class="badge badge--pending">Pending review</span></dd>
+          </div>
+          <div class="summary-list__row">
+            <dt>Received</dt>
+            <dd id="success-date"></dd>
+          </div>
+        </dl>
+
+        <div class="success__actions">
+          <button type="button" class="button button--primary button--large" id="register-another">Register another vendor</button>
+          <a class="button button--secondary button--large" href="admin.html">Open admin view</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Templates: the browser ignores these until JavaScript copies them. -->
+  <template id="chip-template">
+    <label class="chip">
+      <input type="checkbox" name="services">
+      <span class="chip__text"></span>
+    </label>
+  </template>
+
+  <template id="error-item-template">
+    <li><a href="#"></a></li>
+  </template>
+
+  <script src="js/config.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/validate.js" defer></script>
+  <script src="js/register.js" defer></script>
+</body>
+</html>
