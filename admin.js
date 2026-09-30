@@ -41,7 +41,7 @@ const badge = (status) =>
 
 const countLabel = (count) => `${count} ${count === 1 ? 'vendor' : 'vendors'}`;
 
-// ---------- Filtering and sorting ----------
+//Filtering and sorting 
 
 const applyFilters = (vendors) => {
   const query = filters.query.trim().toLowerCase();
@@ -61,8 +61,6 @@ const applyFilters = (vendors) => {
 
   return matches.sort(sorters[filters.sort]);
 };
-
-// ---------- Rendering the list ----------
 
 const renderRow = (vendor) => {
   const [mainService, ...otherServices] = vendor.services;
@@ -130,7 +128,7 @@ const renderList = () => {
   rowsBody.innerHTML = visible.map(renderRow).join('');
 };
 
-// ---------- Details panel ----------
+//Details panel
 
 const detailRow = (label, valueHtml) => `
   <div class="detail">
@@ -235,7 +233,7 @@ const closeDrawer = () => {
   if (lastFocused) lastFocused.focus();
 };
 
-// ---------- Status changes ----------
+//Status changes
 
 const showToast = (message, isError = false) => {
   toast.textContent = message;
@@ -258,12 +256,11 @@ const changeStatus = (status) => {
   renderDrawer({ ...vendor, status });
   renderList();
 
-  // Keep keyboard focus on the button that was just used.
   drawerBody.querySelector(`[data-set-status="${status}"]`)?.focus();
   showToast(`${vendor.companyName} is now ${status.toLowerCase()}.`);
 };
 
-// ---------- Filter controls ----------
+//Filter controls
 
 const fillSelect = (select, allLabel, options) => {
   select.replaceChildren(
@@ -286,7 +283,7 @@ const clearFilters = () => {
   renderList();
 };
 
-// ---------- Events ----------
+//Events
 
 searchInput.addEventListener('input', () => { filters.query = searchInput.value; renderList(); });
 serviceSelect.addEventListener('change', () => { filters.service = serviceSelect.value; renderList(); });
@@ -324,7 +321,6 @@ document.addEventListener('keydown', (event) => {
     return;
   }
 
-  // Keep Tab inside the open panel.
   if (event.key === 'Tab') {
     const focusable = getFocusable();
     if (focusable.length === 0) return;
@@ -342,7 +338,6 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-// Refresh when a vendor registers in another tab.
 window.addEventListener('storage', (event) => {
   if (event.key === STORAGE_KEY) renderList();
 });
